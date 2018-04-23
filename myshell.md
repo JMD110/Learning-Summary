@@ -12,7 +12,7 @@
 4.  不能与关键字重合
 
 **变量操作**
-1. 使用: $变量名 或者 ${变量名}
+>1. 使用: $变量名 或者 ${变量名}
 
 	#!/bin/bash            # 表示为bash的shell  也可以写成#!/bin/sh
 	a=4
@@ -31,11 +31,11 @@
 
 **特殊变量**
 有些变量是一开始执行脚本时就会设定,且不能被修改,但我们不叫它只读的系统变量,而叫它特殊变量
-> $\* 这个程序的所有参数
-> $# 这个程序的参数个数
-> $$ 这个程序的PID
-> $! 执行上一个后台程序的PID 
-> $? 执行上一个指令的返回值
+$\* 这个程序的所有参数<br/>
+$# 这个程序的参数个数<br/>
+$$ 这个程序的PID<br/>
+$! 执行上一个后台程序的PID<br/> 
+$? 执行上一个指令的返回值<br/>
 * * *
 ### shell中常用数据类型
 1. 字符串: 
@@ -43,24 +43,24 @@
 *  提取字符串长度 ${#变量名}
 *  字符串切片 ${变量名:开始位置:结束位置}
 
-	str1='abc'  
-	str2="$str1"
-	str3='$str1'
-	echo $str1 $str2 $str3 #输出abc abc $str1
-	echo ${#str1} #输出3
-	echo ${str1:1:2} #输出bc 开始位置1 结束位置2 编程语言中一般都是以0是开始的
+str1='abc'<br/>  
+str2="$str1"<br/>
+str3='$str1'<br/>
+echo $str1 $str2 $str3 #输出abc abc $str1<br/>
+echo ${#str1} #输出3<br/>
+echo ${str1:1:2} #输出bc 开始位置1 结束位置2 编程语言中一般都是以0是开始的<br/>
 
 2. 数组:
 *  数组的定义: 变量名=(值1 值2... 值n)
 *  数组的读取: ${变量名[下标]} 或 取所有元素用${变量名[@]}
 *  数组的长度: ${#变量名}
 
-	array1=(1 3 5 7 9) #注意数组中每个值用空格隔开而不是逗号
-	echo $array1  #输出1 默认下标0
-	echo ${array[4]}  #输出9
-	echo ${array1[@]}  #输出1 3 5 7 9
-	echo ${#array1[@]} #输出5
-	echo ${#array1}  # 输出1 取的是单个元素 默认的下标是0 单个元素长度为1
+array1=(1 3 5 7 9) #注意数组中每个值用空格隔开而不是逗号<br/>
+echo $array1  #输出1 默认下标0<br/>
+echo ${array[4]}  #输出9<br/>
+echo ${array1[@]}  #输出1 3 5 7 9<br/>
+echo ${#array1[@]} #输出5<br/>
+echo ${#array1}  # 输出1 取的是单个元素 默认的下标是0 单个元素长度为1<br/>
 
 3. 注释:
 *  以#开头的就是注释,会被解释器直接忽略
@@ -82,7 +82,7 @@
 * * *
 ### shell运算符
 
-* 由于原声bash不支持简单的数学运算,但是可以通过其他命令实现,例如awk/expr,其中expr最常用,expr是一款表达式计算工具,使用时要用撇号\`包起来(撇号就是键盘上1左边的那个),而且需要注意的是它有严格的语法规范,表达式与运算符之间一定要有空格!例如\`expr $a + $b\`是对的,但是\`expr $a+$b\`是错误的!
+* 由于原生bash不支持简单的数学运算,但是可以通过其他命令实现,例如awk/expr,其中expr最常用,expr是一款表达式计算工具,使用时要用撇号\`包起来(撇号就是键盘上1左边的那个),而且需要注意的是它有严格的语法规范,表达式与运算符之间一定要有空格!例如\`expr $a + $b\`是对的,但是\`expr $a+$b\`是错误的!
 
 1. 算数运算符:
 
@@ -170,23 +170,23 @@
 
 3. 布尔运算:
 
->! : 非运算符,[!true] 返回false
->-o: 或运算符,任一true 返回true 
->-a: 与运算符,任一为false 返回false
+! : 非运算符,[!true] 返回false<br/>
+-o: 或运算符,任一true 返回true <br/>
+-a: 与运算符,任一为false 返回false<br/>
 
 
 4. 逻辑运算符:
 
->&& 逻辑的AND
->|| 逻辑的OR
+&& 逻辑的AND<br/>
+|| 逻辑的OR<br/>
 
 5. 字符串运算符
 
->= 	检测两个字符串是否相等，相等返回 true。 
->!= 	检测两个字符串是否相等，不相等返回 true。 	
->-z 	检测字符串长度是否为0，为0返回 true。 
->-n 	检测字符串长度是否为0，不为0返回 true。 
->str 检测字符串是否为空，不为空返回 true。 举例 a='abc' [$a]返回ture
+= 	检测两个字符串是否相等，相等返回 true <br/> 
+!= 	检测两个字符串是否相等，不相等返回 true <br/> 	
+-z 	检测字符串长度是否为0，为0返回 true <br/>
+-n 	检测字符串长度是否为0，不为0返回 true <br/>
+str 检测字符串是否为空，不为空返回 true 举例 a='abc' [$a]返回ture<br/>
 
 * * *
 ### shell命令
@@ -195,10 +195,10 @@
 
 *  可以显示普通字符串\转义字符\变量
 
-	echo "Hello world"  #返回Hello world
-	text="Hello world"  
-	echo $text          #返回Hello world
-	echo \"Hello world\"#返回"Hello world"
+echo "Hello world"  #返回Hello world<br/>
+text="Hello world"<br/>  
+echo $text          #返回Hello world<br/>
+echo \"Hello world\"#返回"Hello world"<br/>
 
 *  可以定向至文件
 	echo "Hello world" > test.log   会将"Hello world"定向输出到test.log中
@@ -227,35 +227,36 @@
 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。格式为 test 条件语句
 * 测试字符串
 
-> test str1==str2   测试两个字符串是否相同
-> test str1 !=str2  测试两个字符串是否不同
-> test str1         测试是否为字符创
-> test -n str1或test -z str1  测试是否为空的字符串
+ test str1==str2   测试两个字符串是否相同<br/>
+ test str1 !=str2  测试两个字符串是否不同<br/>
+ test str1         测试是否为字符创<br/>
+ test -n str1或test -z str1  测试是否为空的字符串<br/>
 
 * 测试整数
 
-> test int1 -eq int2
-> test int1 -ne int2
-> test int1 -le int2
-> test int1 -lt int2
-> test int1 -ge int2
-> test int1 -gt int2
+test int1 -eq int2 测试是否相等<br/>
+test int1 -ne int2 测试是否不等<br/>
+test int1 -le int2 测试是否小于等于<br/>
+test int1 -lt int2 测试是否小于<br/>
+test int1 -ge int2 测试是否大于等于<br/>
+test int1 -gt int2 测试是否大于<br/>
 
 * 测试文件
 
-> test -d file 测试是否为目录
-> test -f file 测试是否为文件
-> test -x file 测试是否是可执行文件
-> test -r file 测试是否是可读文件
-> test -w file 测试是否是可写文件
-> test -e file 测试文件是否存在
-> test -s file 测试文件是否为空
-> 可简写 如 test -x file 可简写为 [ -x file ] 注意中括号旁一定加空格把执行命令括起来
+test -d file 测试是否为目录<br/>
+test -f file 测试是否为文件<br/>
+test -x file 测试是否是可执行文件<br/>
+test -r file 测试是否是可读文件<br/>
+test -w file 测试是否是可写文件<br/>
+test -e file 测试文件是否存在<br/>
+test -s file 测试文件是否为空 <br/>
+可简写 如 test -x file 可简写为 [ -x file ] 注意中括号旁一定加空格把执行命令括起来 <br/>
 * * *
 
 ### shell 循环与分支
 
 >1. 分支: if 和 if else 和 if elif else
+
 	if 条件语句
 	then
 		条件为真执行语句
