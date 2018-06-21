@@ -23,3 +23,5 @@
 |git push origin --delete '分支名'|删除远端分支|
 |git push origin --delete tag '版本号'|删除远端上线版本|
 |git diff '分支名' '分支名'| 看两个分支间的差异|
+|git remote add origin '项目地址'| 关联项目|
+|git pull --allow-unrelated-histories | 下载项目建立关联|
