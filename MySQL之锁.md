@@ -29,21 +29,21 @@ select id,value,version from TABLE where id=#{id}
 
 1.    set autocommit=0;
 2.     
-3.    # 设置完autocommit之后，我门就可以执行我们的正常业务了。具体如下：
+3.    设置完autocommit之后，我门就可以执行我们的正常业务了。具体如下：
 4.     
-5.    # 1. 开始事务
+5.    1. 开始事务
 6.    begin;/begin work;/start transaction;(三者选一就可以）
 7.     
-8.    # 2. 查询表信息
+8.    2. 查询表信息
 9.    select status from TABLE where id=1 for update;
 10.  
-11. # 3. 插入一条数据
+11. 3. 插入一条数据
 12. insert into TABLE (id,value) values (2,2);
 13.  
-14. # 4. 修改数据为
+14. 4. 修改数据为
 15. update TABLE set value=2 where id=1;
 16.  
-17. # 5. 提交事务
+17. 5. 提交事务
 18.  
 19. commit;/commit work; 
 共享锁
